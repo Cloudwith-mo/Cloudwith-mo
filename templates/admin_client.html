@@ -4,12 +4,24 @@
     <title>Client Documents</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    <h1>Documents for {{ user.username }}</h1>
-    <table>
+<body class="admin">
+    <header class="topbar">
+        <div class="logo">TaxFlowsAI</div>
+        <nav>
+            <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('admin_clients') }}">Documents</a>
+            <a href="{{ url_for('chat') }}">AI Chat</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </header>
 
-        <tr><th>Name</th><th>Status</th><th>Notes</th><th>Action</th></tr>
-
+    <main class="admin-main">
+    <p><a href="{{ url_for('admin_clients') }}">&lt; Back to Client List</a></p>
+    <h1>{{ user.username }}</h1>
+    <table class="client-table">
+                    <input type="text" class="notes-input" name="notes" value="{{ doc.notes or '' }}" placeholder="Notes">
+                    <button class="btn" type="submit">Update</button>
+    </main>
         <tr><th>Name</th><th>Status</th><th>Action</th></tr>
 
         {% for doc in documents %}
