@@ -4,15 +4,34 @@
     <title>Clients</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
+<body class="admin">
+    <header class="topbar">
+        <div class="logo">TaxFlowsAI</div>
+        <nav>
+            <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('admin_clients') }}">Documents</a>
+            <a href="{{ url_for('chat') }}">AI Chat</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </header>
+
+    <main class="admin-main">
     <h1>Client Management</h1>
-    <ul>
+    <form method="get" class="search-box">
+        <input type="text" name="q" placeholder="Search clients" value="{{ query }}">
+        <button class="btn" type="submit">Search</button>
+    </form>
+    <table class="client-table">
+        <tr><th>Name</th><th>Action</th></tr>
         {% for user in users %}
-            <li>{{ user.username }}</li>
+            <tr>
+                <td>{{ user.username }}</td>
+                <td><a class="btn" href="{{ url_for('admin_client', user_id=user.id) }}">View</a></td>
+            </tr>
         {% else %}
-            <li>No clients</li>
+            <tr><td colspan="2">No clients</td></tr>
         {% endfor %}
-    </ul>
-    <p><a href="{{ url_for('dashboard') }}">Back to dashboard</a></p>
+    </table>
+    </main>
 </body>
 </html>

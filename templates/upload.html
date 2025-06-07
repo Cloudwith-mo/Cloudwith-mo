@@ -6,9 +6,12 @@
 </head>
 <body>
     <h1>Upload Document</h1>
-    <form method="post">
-        <input type="text" name="doc_name" placeholder="Document Name">
-        <input type="submit" value="Upload">
+    <form method="post" class="upload-form">
+        <div class="drop-zone">
+            Drag and drop file here<br>
+            <input type="text" name="doc_name" placeholder="Document Name">
+        </div>
+        <button class="btn" type="submit">Upload</button>
     </form>
     <p><a href="{{ url_for('dashboard') }}">Back to dashboard</a></p>
 </body>

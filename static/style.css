@@ -1,2 +1,180 @@
 body { font-family: Arial, sans-serif; margin: 20px; }
 h1 { color: #333; }
+
+body.dashboard {
+    margin: 0;
+    background: #f5f7fa;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007bff;
+}
+.topbar nav a {
+    margin-left: 1rem;
+    color: #333;
+    text-decoration: none;
+}
+.topbar nav a:hover {
+    text-decoration: underline;
+}
+
+.welcome {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ddd;
+}
+
+.docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.doc-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.doc-meta {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.doc-name { font-weight: bold; }
+.doc-status { font-size: 0.9rem; color: #555; }
+
+.progress { width: 100%; background: #eee; height: 8px; margin-top: 6px; border-radius: 4px; overflow: hidden; }
+.progress-bar { background: #4caf50; height: 100%; }
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.admin-link { margin-top: 2rem; }
+
+/* Admin dashboard */
+.metrics {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.metric-card {
+    background: #fff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.client-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+.client-table th,
+.client-table td {
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+}
+
+.search-box {
+    margin-bottom: 1rem;
+}
+.search-box input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.notes-input {
+    width: 100%;
+    padding: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Chat page */
+.chat-window {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    height: 300px;
+    overflow-y: auto;
+    background: #fff;
+    margin-bottom: 1rem;
+}
+.chat-bubble {
+    padding: 0.5rem 1rem;
+    border-radius: 16px;
+    margin-bottom: 0.5rem;
+}
+.chat-bubble.bot {
+    background: #e3f2fd;
+}
+.chat-input {
+    display: flex;
+    gap: 0.5rem;
+}
+.chat-input input {
+    flex: 1;
+    padding: 0.5rem;
+}
+.drop-zone {
+    border: 2px dashed #007bff;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.chat-section {
+    margin-top: 2rem;
+}
+
+.chat-suggestions button {
+    margin-right: 0.5rem;
+}
+
+.notifications {
+    margin-top: 2rem;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
