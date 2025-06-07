@@ -1,2 +1,7 @@
+
 flask
 Werkzeug
+=======
+Flask
+Flask-Login
+Flask-SQLAlchemy
