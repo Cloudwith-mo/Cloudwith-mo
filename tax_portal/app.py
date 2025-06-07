@@ -9,6 +9,7 @@ from flask_login import (
     current_user,
 )
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 import os
 
 app = Flask(
@@ -40,6 +41,9 @@ class Document(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
     name = db.Column(db.String(120), nullable=False)
+    description = db.Column(db.String(200))
+    notes = db.Column(db.String(500))
+    upload_date = db.Column(db.DateTime, default=datetime.utcnow)
     status = db.Column(db.String(30), default="uploaded")
 
 
@@ -107,10 +111,57 @@ def upload():
     return render_template("upload.html")
 
 
+@app.route("/admin")
+@login_required
+def admin_dashboard():
+    if current_user.username != "admin":
+        return redirect(url_for("dashboard"))
+    total_docs = Document.query.count()
+    processed = Document.query.filter(Document.status != "uploaded").count()
+    return render_template(
+        "admin_dashboard.html",
+        total_docs=total_docs,
+        processed_docs=processed,
+        analyses_run=0,
+    )
+
+
 @app.route("/admin/clients")
 @login_required
 def admin_clients():
-    return render_template("admin_clients.html", users=User.query.all())
+    if current_user.username != "admin":
+        return redirect(url_for("dashboard"))
+    query = request.args.get("q", "")
+    if query:
+        users = User.query.filter(User.username.contains(query)).all()
+    else:
+        users = User.query.all()
+    return render_template("admin_clients.html", users=users, query=query)
+
+
+@app.route("/admin/client/<int:user_id>", methods=["GET", "POST"])
+@login_required
+def admin_client(user_id):
+    user = User.query.get_or_404(user_id)
+    if request.method == "POST":
+        doc_id = request.form.get("doc_id")
+        status = request.form.get("status")
+        notes = request.form.get("notes")
+        doc = Document.query.get(doc_id)
+        if doc and status:
+            doc.status = status
+            if notes is not None:
+                doc.notes = notes
+            db.session.commit()
+        return redirect(url_for("admin_client", user_id=user_id))
+    docs = Document.query.filter_by(user_id=user.id).all()
+    return render_template("admin_client.html", user=user, documents=docs)
+
+
+@app.route("/chat")
+@login_required
+def chat():
+    return render_template("chat.html")
 
 
 @app.route("/admin/client/<int:user_id>", methods=["GET", "POST"])
