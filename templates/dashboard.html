@@ -6,10 +6,10 @@
 </head>
 <body>
     <h1>Welcome {{ username }}</h1>
-    <p><a href="{{ url_for('upload') }}">Upload Document</a></p>
+    <p><a href="{{ url_for('upload') }}">Upload Document</a> | <a href="{{ url_for('logout') }}">Logout</a></p>
     <ul>
         {% for doc in documents %}
-            <li>{{ doc }}</li>
+            <li>{{ doc.name }} - {{ doc.status }}</li>
         {% else %}
             <li>No documents</li>
         {% endfor %}
