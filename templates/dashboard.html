@@ -4,22 +4,38 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    <h1>Welcome {{ username }}</h1>
-    <p><a href="{{ url_for('upload') }}">Upload Document</a> | <a href="{{ url_for('chat') }}">AI Chat</a> | <a href="{{ url_for('logout') }}">Logout</a></p>
-    <ul>
-        {% set progress = {'uploaded':25,'in_review':50,'filed':75,'refund_sent':100} %}
-        {% for doc in documents %}
-            <li>
-                {{ doc.name }} - {{ doc.status }}
-                <div class="progress">
-                    <div class="progress-bar" style="width:{{ progress.get(doc.status,0) }}%"></div>
+<body class="dashboard">
+    <header class="topbar">
+        <div class="welcome">
+            <div class="avatar"></div>
+            <h1>Welcome, {{ username }}</h1>
+        </div>
+        <nav><a href="{{ url_for('logout') }}">Logout</a></nav>
+    </header>
+
+    <main class="dashboard-main">
+        <section class="documents">
+            <h2>Your Documents</h2>
+            <div class="docs-grid">
+                {% set progress = {'uploaded':25,'in_review':50,'filed':75,'refund_sent':100} %}
+                {% for doc in documents %}
+                <div class="doc-card">
+                    <div class="doc-name">{{ doc.name }}</div>
+                    <div class="doc-status">{{ doc.status.replace('_',' ').title() }}</div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:{{ progress.get(doc.status,0) }}%"></div>
+                    </div>
                 </div>
-            </li>
-        {% else %}
-            <li>No documents</li>
-        {% endfor %}
-    </ul>
-    <p><a href="{{ url_for('admin_clients') }}">Admin Client Management</a></p>
+                {% else %}
+                    <p>No documents uploaded</p>
+                {% endfor %}
+            </div>
+            <p><a class="btn" href="{{ url_for('upload') }}">Upload Document</a></p>
+        </section>
+
+        <button class="chat-btn" onclick="location.href='{{ url_for('chat') }}'">Chat</button>
+
+        <p class="admin-link"><a href="{{ url_for('admin_clients') }}">Admin Client Management</a></p>
+    </main>
 </body>
 </html>
