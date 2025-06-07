@@ -6,14 +6,16 @@
 </head>
 <body class="admin">
     <header class="topbar">
-        <h1>Admin Dashboard</h1>
+        <div class="logo">TaxFlowsAI</div>
         <nav>
-            <a href="{{ url_for('dashboard') }}">Client View</a>
+            <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('admin_clients') }}">Documents</a>
             <a href="{{ url_for('logout') }}">Logout</a>
         </nav>
     </header>
-
+    
     <main class="admin-main">
+        <h1>Admin Dashboard</h1>
         <div class="metrics">
             <div class="metric-card">Total Documents<br>{{ total_docs }}</div>
             <div class="metric-card">Processed Documents<br>{{ processed_docs }}</div>

@@ -4,15 +4,26 @@
     <title>Upload Document</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    <h1>Upload Document</h1>
-    <form method="post" class="upload-form">
-        <div class="drop-zone">
-            Drag and drop file here<br>
-            <input type="text" name="doc_name" placeholder="Document Name">
-        </div>
-        <button class="btn" type="submit">Upload</button>
-    </form>
-    <p><a href="{{ url_for('dashboard') }}">Back to dashboard</a></p>
+<body class="upload-page">
+    <aside class="sidebar">
+        <div class="logo">TaxFlowsAI</div>
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('upload') }}">Documents</a>
+            <a href="{{ url_for('chat') }}">AI Chat</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </aside>
+    <main class="upload-main">
+        <h1>Upload Document</h1>
+        <form method="post" class="upload-form">
+            <div class="drop-zone">
+                Drag and drop file here, or <span class="choose-file">Choose file</span><br>
+                <input type="text" name="doc_name" placeholder="Document Name">
+            </div>
+            <button class="btn" type="submit">Upload</button>
+        </form>
+        <p><a href="{{ url_for('dashboard') }}">Back to dashboard</a></p>
+    </main>
 </body>
 </html>
