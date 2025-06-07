@@ -7,12 +7,17 @@
 <body>
     <h1>Documents for {{ user.username }}</h1>
     <table>
+
         <tr><th>Name</th><th>Status</th><th>Notes</th><th>Action</th></tr>
+
+        <tr><th>Name</th><th>Status</th><th>Action</th></tr>
+
         {% for doc in documents %}
         <tr>
             <td>{{ doc.name }}</td>
             <td>{{ doc.status }}</td>
             <td>{{ doc.notes or '' }}</td>
+
             <td>
                 <form method="post">
                     <input type="hidden" name="doc_id" value="{{ doc.id }}">
@@ -23,6 +28,7 @@
                         <option value="refund_sent" {% if doc.status=='refund_sent' %}selected{% endif %}>Refund Sent</option>
                     </select>
                     <input type="text" name="notes" value="{{ doc.notes or '' }}" placeholder="Notes">
+
                     <button type="submit">Update</button>
                 </form>
             </td>
