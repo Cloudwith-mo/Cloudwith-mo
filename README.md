@@ -9,3 +9,15 @@
 - 📫 How to reach me: muhammadadeyemi.it@outlook.com.
 - ⚡ Fun fact: I like to read sci-fi books.
 
+
+## Running the Flask demo
+
+Install the dependencies and start the app from the repository root:
+
+```bash
+pip install flask
+python tax_portal/app.py
+```
+
+The file `tax_portal/app.py` expects the shared `templates/` and `static/` directories in the parent folder.
+
