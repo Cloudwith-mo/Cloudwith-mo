@@ -10,6 +10,7 @@
 - ⚡ Fun fact: I like to read sci-fi books.
 
 
+~~codex/introduce-database-layer-and-authentication
 ## Running the sample app
 
 The repository now includes a small Flask application that demonstrates using
@@ -25,3 +26,18 @@ python app.py
 ```
 
 Visit `http://localhost:5000` to register a user, log in and create documents.
+=======
+## Running the Flask demo
+
+Install the dependencies and start the app from the repository root. The
+application uses SQLite for development and will create `tax_portal.db` on first
+run:
+
+```bash
+pip install flask flask-login flask-sqlalchemy
+python tax_portal/app.py
+```
+
+The file `tax_portal/app.py` expects the shared `templates/` and `static/` directories in the parent folder.
+
+
