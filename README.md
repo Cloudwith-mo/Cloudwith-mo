@@ -1,11 +1,28 @@
-## Hi there 👋
+# TaxFlowsAI Prototype
 
-**Cloudwith-mo/Cloudwith-mo** 
+This repository hosts **TaxFlowsAI**, a small experiment in building a tax portal with AI features. It is not production ready but gives you an idea of how income and deduction data might be captured and summarized.
 
-- 🔭 I’m currently working on:
-1. A book blog. Every single day after I read, I'll submit an entry and when I'm done with the book, AI will give me summary from my daily entries. 
-2. A journal entry. I like to handwrite my journal entries, I'm creating a tool that'll allow me to uupload a picture of my hand written journal and turn in into text and give me a summary. 
+## Purpose
+
+The goal is to test different ways of providing tax insights to users using lightweight scripts. While the portal lets you enter test data and see a summary, it should only be used locally for demonstration or learning.
+
+## Running the Prototype
+
+1. Clone this repository.
+2. Create a Python virtual environment and install the dependencies listed in `requirements.txt`.
+3. Run `python taxflowsai.py` to start the server and open your browser to `http://localhost:8000`.
+
+For more detailed instructions, see [TAX_PORTAL_README.md](TAX_PORTAL_README.md).
+
+## Basic Usage
+
+Once the server is running you can add income and deduction items. The application will display a summary of your entries and is intended to be extended with AI-driven suggestions.
+
+## About
+
+This project is maintained by Cloudwith-mo.
+
+- 🔭 I’m currently working on a book blog and a tool for digitizing my handwritten journal entries.
 - 💬 Ask me about Cloud & IT.
-- 📫 How to reach me: muhammadadeyemi.it@outlook.com.
+- 📫 Reach me at muhammadadeyemi.it@outlook.com.
 - ⚡ Fun fact: I like to read sci-fi books.
-
