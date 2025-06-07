@@ -1,22 +1,17 @@
 # TaxFlowsAI Prototype
 
-This repository hosts **TaxFlowsAI**, a small experiment in building a tax portal with AI features. It is not production ready but gives you an idea of how income and deduction data might be captured and summarized.
+This repository hosts **TaxFlowsAI**, a small experiment in building a tax portal with AI features. It is meant for local testing only.
 
-## Purpose
+## Running the Flask demo
 
-The goal is to test different ways of providing tax insights to users using lightweight scripts. While the portal lets you enter test data and see a summary, it should only be used locally for demonstration or learning.
+Install the dependencies and start the app from the repository root. The application uses SQLite for development and will create `tax_portal.db` on first run:
 
-## Running the Prototype
+```bash
+pip install -r requirements.txt
+python tax_portal/app.py
+```
 
-1. Clone this repository.
-2. Create a Python virtual environment and install the dependencies listed in `requirements.txt`.
-3. Run `python taxflowsai.py` to start the server and open your browser to `http://localhost:8000`.
-
-For more detailed instructions, see [TAX_PORTAL_README.md](TAX_PORTAL_README.md).
-
-## Basic Usage
-
-Once the server is running you can add income and deduction items. The application will display a summary of your entries and is intended to be extended with AI-driven suggestions.
+The file `tax_portal/app.py` expects the shared `templates/` and `static/` directories in the parent folder.
 
 ## About
 
@@ -26,38 +21,3 @@ This project is maintained by Cloudwith-mo.
 - 💬 Ask me about Cloud & IT.
 - 📫 Reach me at muhammadadeyemi.it@outlook.com.
 - ⚡ Fun fact: I like to read sci-fi books.
-3
-=======
-
-
-~~codex/introduce-database-layer-and-authentication
-## Running the sample app
-
-The repository now includes a small Flask application that demonstrates using
-SQLite for persistence and [Flask-Login](https://flask-login.readthedocs.io/) for
-basic authentication. The app stores users, documents and processing statuses in
-`app.db` by default.
-
-### Setup
-
-```bash
-pip install -r requirements.txt
-python app.py
-```
-
-Visit `http://localhost:5000` to register a user, log in and create documents.
-=======
-## Running the Flask demo
-
-Install the dependencies and start the app from the repository root. The
-application uses SQLite for development and will create `tax_portal.db` on first
-run:
-
-```bash
-pip install flask flask-login flask-sqlalchemy
-python tax_portal/app.py
-```
-
-The file `tax_portal/app.py` expects the shared `templates/` and `static/` directories in the parent folder.
-
-
