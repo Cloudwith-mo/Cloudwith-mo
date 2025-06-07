@@ -9,3 +9,19 @@
 - 📫 How to reach me: muhammadadeyemi.it@outlook.com.
 - ⚡ Fun fact: I like to read sci-fi books.
 
+
+## Running the sample app
+
+The repository now includes a small Flask application that demonstrates using
+SQLite for persistence and [Flask-Login](https://flask-login.readthedocs.io/) for
+basic authentication. The app stores users, documents and processing statuses in
+`app.db` by default.
+
+### Setup
+
+```bash
+pip install -r requirements.txt
+python app.py
+```
+
+Visit `http://localhost:5000` to register a user, log in and create documents.
