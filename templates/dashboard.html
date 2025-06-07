@@ -6,10 +6,16 @@
 </head>
 <body>
     <h1>Welcome {{ username }}</h1>
-    <p><a href="{{ url_for('upload') }}">Upload Document</a> | <a href="{{ url_for('logout') }}">Logout</a></p>
+    <p><a href="{{ url_for('upload') }}">Upload Document</a> | <a href="{{ url_for('chat') }}">AI Chat</a> | <a href="{{ url_for('logout') }}">Logout</a></p>
     <ul>
+        {% set progress = {'uploaded':25,'in_review':50,'filed':75,'refund_sent':100} %}
         {% for doc in documents %}
-            <li>{{ doc.name }} - {{ doc.status }}</li>
+            <li>
+                {{ doc.name }} - {{ doc.status }}
+                <div class="progress">
+                    <div class="progress-bar" style="width:{{ progress.get(doc.status,0) }}%"></div>
+                </div>
+            </li>
         {% else %}
             <li>No documents</li>
         {% endfor %}
