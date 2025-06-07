@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <title>Client Documents</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Documents for {{ user.username }}</h1>
+    <table>
+        <tr><th>Name</th><th>Status</th><th>Action</th></tr>
+        {% for doc in documents %}
+        <tr>
+            <td>{{ doc.name }}</td>
+            <td>{{ doc.status }}</td>
+            <td>
+                <form method="post">
+                    <input type="hidden" name="doc_id" value="{{ doc.id }}">
+                    <select name="status">
+                        <option value="uploaded" {% if doc.status=='uploaded' %}selected{% endif %}>Uploaded</option>
+                        <option value="in_review" {% if doc.status=='in_review' %}selected{% endif %}>In Review</option>
+                        <option value="filed" {% if doc.status=='filed' %}selected{% endif %}>Filed</option>
+                        <option value="refund_sent" {% if doc.status=='refund_sent' %}selected{% endif %}>Refund Sent</option>
+                    </select>
+                    <button type="submit">Update</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="3">No documents</td></tr>
+        {% endfor %}
+    </table>
+    <p><a href="{{ url_for('admin_clients') }}">Back to client list</a></p>
+</body>
+</html>

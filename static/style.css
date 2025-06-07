@@ -1,2 +1,4 @@
 body { font-family: Arial, sans-serif; margin: 20px; }
 h1 { color: #333; }
+.progress { width: 200px; background: #eee; height: 10px; margin-top: 4px; }
+.progress-bar { background: #4caf50; height: 100%; }
