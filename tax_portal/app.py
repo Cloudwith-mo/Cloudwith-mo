@@ -164,6 +164,28 @@ def chat():
     return render_template("chat.html")
 
 
+@app.route("/admin/client/<int:user_id>", methods=["GET", "POST"])
+@login_required
+def admin_client(user_id):
+    user = User.query.get_or_404(user_id)
+    if request.method == "POST":
+        doc_id = request.form.get("doc_id")
+        status = request.form.get("status")
+        doc = Document.query.get(doc_id)
+        if doc and status:
+            doc.status = status
+            db.session.commit()
+        return redirect(url_for("admin_client", user_id=user_id))
+    docs = Document.query.filter_by(user_id=user.id).all()
+    return render_template("admin_client.html", user=user, documents=docs)
+
+
+@app.route("/chat")
+@login_required
+def chat():
+    return render_template("chat.html")
+
+
 @app.route("/logout")
 @login_required
 def logout():

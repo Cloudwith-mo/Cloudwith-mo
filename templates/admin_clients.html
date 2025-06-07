@@ -28,10 +28,14 @@
                 <td>{{ user.username }}</td>
                 <td><a class="btn" href="{{ url_for('admin_client', user_id=user.id) }}">View</a></td>
             </tr>
+
+            <li><a href="{{ url_for('admin_client', user_id=user.id) }}">{{ user.username }}</a></li>
+
         {% else %}
             <tr><td colspan="2">No clients</td></tr>
         {% endfor %}
     </table>
     </main>
+
 </body>
 </html>

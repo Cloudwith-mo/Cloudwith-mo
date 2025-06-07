@@ -20,11 +20,13 @@
     <h1>{{ user.username }}</h1>
     <table class="client-table">
         <tr><th>Name</th><th>Status</th><th>Notes</th><th>Action</th></tr>
+
         {% for doc in documents %}
         <tr>
             <td>{{ doc.name }}</td>
             <td>{{ doc.status }}</td>
             <td>{{ doc.notes or '' }}</td>
+
             <td>
                 <form method="post">
                     <input type="hidden" name="doc_id" value="{{ doc.id }}">
@@ -36,6 +38,7 @@
                     </select>
                     <input type="text" class="notes-input" name="notes" value="{{ doc.notes or '' }}" placeholder="Notes">
                     <button class="btn" type="submit">Update</button>
+
                 </form>
             </td>
         </tr>
@@ -44,5 +47,6 @@
         {% endfor %}
     </table>
     </main>
+
 </body>
 </html>
