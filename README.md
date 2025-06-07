@@ -12,10 +12,12 @@
 
 ## Running the Flask demo
 
-Install the dependencies and start the app from the repository root:
+Install the dependencies and start the app from the repository root. The
+application uses SQLite for development and will create `tax_portal.db` on first
+run:
 
 ```bash
-pip install flask
+pip install flask flask-login flask-sqlalchemy
 python tax_portal/app.py
 ```
 
