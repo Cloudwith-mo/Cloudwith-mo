@@ -1,3 +1,5 @@
+import os
+=======
 
 from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
@@ -115,6 +117,12 @@ from flask_login import (
 )
 from werkzeug.security import generate_password_hash, check_password_hash
 
+app = Flask(
+    __name__,
+    template_folder=os.path.join(os.path.pardir, "templates"),
+    static_folder=os.path.join(os.path.pardir, "static"),
+)
+=======
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "change-me"  # In production use a secure value
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///tax_portal.db"
