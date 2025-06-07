@@ -4,13 +4,22 @@
     <title>Client Documents</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    <h1>Documents for {{ user.username }}</h1>
-    <table>
+<body class="admin">
+    <header class="topbar">
+        <div class="logo">TaxFlowsAI</div>
+        <nav>
+            <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('admin_clients') }}">Documents</a>
+            <a href="{{ url_for('chat') }}">AI Chat</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </header>
 
+    <main class="admin-main">
+    <p><a href="{{ url_for('admin_clients') }}">&lt; Back to Client List</a></p>
+    <h1>{{ user.username }}</h1>
+    <table class="client-table">
         <tr><th>Name</th><th>Status</th><th>Notes</th><th>Action</th></tr>
-
-        <tr><th>Name</th><th>Status</th><th>Action</th></tr>
 
         {% for doc in documents %}
         <tr>
@@ -27,9 +36,9 @@
                         <option value="filed" {% if doc.status=='filed' %}selected{% endif %}>Filed</option>
                         <option value="refund_sent" {% if doc.status=='refund_sent' %}selected{% endif %}>Refund Sent</option>
                     </select>
-                    <input type="text" name="notes" value="{{ doc.notes or '' }}" placeholder="Notes">
+                    <input type="text" class="notes-input" name="notes" value="{{ doc.notes or '' }}" placeholder="Notes">
+                    <button class="btn" type="submit">Update</button>
 
-                    <button type="submit">Update</button>
                 </form>
             </td>
         </tr>
@@ -37,6 +46,7 @@
         <tr><td colspan="3">No documents</td></tr>
         {% endfor %}
     </table>
-    <p><a href="{{ url_for('admin_clients') }}">Back to client list</a></p>
+    </main>
+
 </body>
 </html>

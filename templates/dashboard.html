@@ -52,6 +52,7 @@
         <p class="admin-link"><a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a></p>
     </main>
 
+
 <body>
     <h1>Welcome {{ username }}</h1>
     <p><a href="{{ url_for('upload') }}">Upload Document</a> | <a href="{{ url_for('chat') }}">AI Chat</a> | <a href="{{ url_for('logout') }}">Logout</a></p>
@@ -69,5 +70,6 @@
         {% endfor %}
     </ul>
     <p><a href="{{ url_for('admin_clients') }}">Admin Client Management</a></p>
+
 </body>
 </html>
