@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="admin">
+    <header class="topbar">
+        <h1>Admin Dashboard</h1>
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Client View</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </header>
+
+    <main class="admin-main">
+        <div class="metrics">
+            <div class="metric-card">Total Documents<br>{{ total_docs }}</div>
+            <div class="metric-card">Processed Documents<br>{{ processed_docs }}</div>
+            <div class="metric-card">AI Analyses Run<br>{{ analyses_run }}</div>
+        </div>
+        <p><a class="btn" href="{{ url_for('admin_clients') }}">Manage Clients</a></p>
+    </main>
+</body>
+</html>

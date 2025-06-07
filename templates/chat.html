@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    <title>AI Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Access AI Chatbot</h1>
+    <div class="chat-window">
+        <div class="chat-bubble bot">Hello! How can I assist you today?</div>
+        <!-- Chat messages will be appended here -->
+    </div>
+    <form class="chat-input" method="post">
+        <input type="text" placeholder="Type a message">
+        <button class="btn" type="submit">Send</button>
+    </form>
+    <p><a href="{{ url_for('dashboard') }}">Back to dashboard</a></p>
+</body>
+</html>

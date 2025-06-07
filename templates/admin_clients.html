@@ -6,13 +6,21 @@
 </head>
 <body>
     <h1>Client Management</h1>
-    <ul>
+    <form method="get" class="search-box">
+        <input type="text" name="q" placeholder="Search clients" value="{{ query }}">
+        <button class="btn" type="submit">Search</button>
+    </form>
+    <table class="client-table">
+        <tr><th>Name</th><th>Action</th></tr>
         {% for user in users %}
-            <li>{{ user.username }}</li>
+            <tr>
+                <td>{{ user.username }}</td>
+                <td><a class="btn" href="{{ url_for('admin_client', user_id=user.id) }}">View</a></td>
+            </tr>
         {% else %}
-            <li>No clients</li>
+            <tr><td colspan="2">No clients</td></tr>
         {% endfor %}
-    </ul>
-    <p><a href="{{ url_for('dashboard') }}">Back to dashboard</a></p>
+    </table>
+    <p><a href="{{ url_for('admin_dashboard') }}">Back to dashboard</a></p>
 </body>
 </html>
