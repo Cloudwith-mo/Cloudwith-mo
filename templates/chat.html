@@ -4,8 +4,11 @@
     <title>AI Chat</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    <h1>Access AI Chatbot</h1>
+<body class="chat-page">
+    <header class="chat-header">
+        <div class="logo">TaxFlowsAI</div>
+        <h1>Access AI Chatbot</h1>
+    </header>
     <div class="chat-window">
         <div class="chat-bubble bot">Hello! How can I assist you today?</div>
         <!-- Chat messages will be appended here -->
@@ -14,10 +17,6 @@
         <input type="text" placeholder="Type a message">
         <button class="btn" type="submit">Send</button>
     </form>
-
-    <h1>Assistant</h1>
-    <p>This is a placeholder for the AI chatbot.</p>
-
     <p><a href="{{ url_for('dashboard') }}">Back to dashboard</a></p>
 </body>
 </html>

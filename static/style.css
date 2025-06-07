@@ -7,6 +7,40 @@ body.dashboard {
     background: #f5f7fa;
 }
 
+/* Sidebar layout for upload page */
+.upload-page {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background: #1f2937;
+    color: #fff;
+    padding: 2rem 1rem;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.sidebar nav a {
+    color: #cbd5e1;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+}
+
+.sidebar nav a:hover {
+    color: #fff;
+}
+
+.upload-main {
+    flex: 1;
+    padding: 2rem;
+}
+
 .topbar {
     display: flex;
     justify-content: space-between;
@@ -34,6 +68,9 @@ body.dashboard {
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+.username {
+    font-weight: bold;
 }
 
 .avatar {
@@ -108,6 +145,9 @@ body.dashboard {
     border-radius: 8px;
     box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
+.admin-main {
+    padding: 2rem;
+}
 
 .client-table {
     width: 100%;
@@ -153,6 +193,14 @@ body.dashboard {
 .chat-bubble.bot {
     background: #e3f2fd;
 }
+.chat-page {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+.chat-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
 .chat-input {
     display: flex;
     gap: 0.5rem;
@@ -163,10 +211,13 @@ body.dashboard {
 }
 .drop-zone {
     border: 2px dashed #007bff;
-
     padding: 2rem;
     text-align: center;
     margin-bottom: 1rem;
+}
+.choose-file {
+    color: #007bff;
+    cursor: pointer;
 }
 
 .chat-section {
