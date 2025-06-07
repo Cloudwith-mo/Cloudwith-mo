@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+    <title>Clients</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Client Management</h1>
+    <ul>
+        {% for user in users %}
+            <li>{{ user['username'] }}</li>
+        {% else %}
+            <li>No clients</li>
+        {% endfor %}
+    </ul>
+    <p><a href="{{ url_for('dashboard') }}">Back to dashboard</a></p>
+</body>
+</html>

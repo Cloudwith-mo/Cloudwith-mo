@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome {{ username }}</h1>
+    <p><a href="{{ url_for('upload') }}">Upload Document</a></p>
+    <ul>
+        {% for doc in documents %}
+            <li>{{ doc }}</li>
+        {% else %}
+            <li>No documents</li>
+        {% endfor %}
+    </ul>
+    <p><a href="{{ url_for('admin_clients') }}">Admin Client Management</a></p>
+</body>
+</html>
