@@ -1,6 +1,11 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    template_folder=os.path.join(os.path.pardir, "templates"),
+    static_folder=os.path.join(os.path.pardir, "static"),
+)
 
 # Simple in-memory stores for demo purposes
 users = []
