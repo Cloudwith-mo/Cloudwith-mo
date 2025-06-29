@@ -1,6 +1,10 @@
 import os
 import sys
 import pytest
+import importlib
+
+flask_spec = importlib.util.find_spec("flask")
+pytestmark = pytest.mark.skipif(flask_spec is None, reason="Flask not installed")
 
 # Ensure we run the app from its directory so relative paths work
 @pytest.fixture(scope="module", autouse=True)
