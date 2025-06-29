@@ -21,3 +21,13 @@ This project is maintained by Cloudwith-mo.
 - 💬 Ask me about Cloud & IT.
 - 📫 Reach me at muhammadadeyemi.it@outlook.com.
 - ⚡ Fun fact: I like to read sci-fi books.
+
+## Running Tests
+
+After installing the dependencies, run the test suite:
+
+```bash
+pip install -r requirements.txt
+pytest
+```
+
